@@ -17,7 +17,7 @@ public class MatrixRotationActivity extends AppCompatActivity {
     int[][] matrix = null;
 
     TextView tvMatrix;
-    Button btRotate;
+    Button btRotate, btRorate180;
 
 
     @Override
@@ -34,7 +34,8 @@ public class MatrixRotationActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.bt_rotate_180).setOnClickListener(new View.OnClickListener() {
+        btRorate180 = findViewById(R.id.bt_rotate_180);
+        btRorate180.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rotateMatrix_180_degrees();
@@ -49,7 +50,8 @@ public class MatrixRotationActivity extends AppCompatActivity {
                     N = Integer.valueOf(v.getText().toString());
                     matrix = generateMatrix(N);
                     displayMatrix(matrix, N);
-
+                    btRorate180.setVisibility(View.VISIBLE);
+                    btRotate.setVisibility(View.VISIBLE);
                 return false;
             }
         });
